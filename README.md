@@ -1,6 +1,21 @@
 # codeEEW_parser
 緊急地震速報のコード電文をjson形式にパースするPythonのパッケージです。
 
+## 使用方法
+```
+pip install codeEEW-parser
+```
+を使用してパッケージをインストールします。
+```python
+import codeEEW_parser
+
+code_eew = "37 03 00 110311144645 C11 110311144619 ND20110311144640 NCN001 JD////////////// JN/// 287 N382 E1427 010 43 01 RK6620/ RT10/// RC///// 9999="
+result = codeEEW_parser.parse_data(code_eew)
+
+print(result)
+```
+parse_data関数にはstring型でコード電文を渡します。
+
 ## 動作等について
 動作の保証は一切ありません。**利用者の自己責任**で使用してください。    
 次の場合は正しく動作しません。
