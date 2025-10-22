@@ -8,7 +8,7 @@ long_description = "詳細な説明等は GitHub を参照してください: ht
 
 setup(
     name="codeEEW_parser",
-    version="0.1",
+    version="0.1.1",
     packages=find_packages(),
     author="t0729",
     description="緊急地震速報のコード電文を解析するためのパッケージ",
