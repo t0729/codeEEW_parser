@@ -87,7 +87,7 @@ def parse_data(data):
             json_dict["issue"]["isFinal"] = False
     ## 予測手法
     isPLUM = body[96]
-    if isPLUM == 9:
+    if isPLUM == "9":
         json_dict["issue"]["isPLUM"] = True
     else:
         json_dict["issue"]["isPLUM"] = False
@@ -275,7 +275,7 @@ def parse_data(data):
         ## 最大予測震度
         yosoushindo_from = yosoushindo_temp[7:9]
         yosoushindo_to = yosoushindo_temp[5:7]
-        if yosoushindo_temp == "//":
+        if yosoushindo_to == "//":
             yosoushindo_json["From"] = shindo_henkan(yosoushindo_to)
             yosoushindo_json["To"] = "over"
         else:
