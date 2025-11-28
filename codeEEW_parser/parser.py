@@ -85,8 +85,8 @@ def parse_data(data):
             json_dict["issue"]["isFinal"] = True
         case _:
             json_dict["issue"]["isFinal"] = False
-    ## 予測手法
-    isPLUM = body[96]
+    ## 予測手法(PLUMか)
+    isPLUM = body[97]
     if isPLUM == "9":
         json_dict["issue"]["isPLUM"] = True
     else:
