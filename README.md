@@ -26,16 +26,19 @@ parse_data関数にはstring型でコード電文を渡します。
 ## 戻り値のjsonの形式
 | 要素名 | 型 | 内容 | 取り得る値 |
 |--------|------|------|-------------|
-| type | string | 情報のタイトル | [typeの取り得る値](./取り得る値.md#typeの取り得る値)を参照 |
+| title | string | 情報のタイトル | [titleの取り得る値](./取り得る値.md#titleの取り得る値)を参照 |
 | issue.telegram_type | string | 電文のタイプ | [telegram_typeの取り得る値](./取り得る値.md#telegram_typeの取り得る値)を参照 |
+| issue.source | string | 電文のタイプ | "気象庁本庁" 又は "大阪管区気象台" |
 | issue.outgoing_time | string | 電文の発信時刻 | YYYY-MM-DD HH:MM:SS |
-| issue.warning | bool | 警報が発表されているか | true / false |
 | issue.EventID | string | EventId | 14文字の半角数字 |
+| issue.status | string | 発表状況 | "通常発表時" "最終の緊急地震速報（予報）" "未設定時" |
+| issue.isWarning | bool | 警報が発表されているか | true / false |
 | issue.isFinal | bool | この電文が最終報か | true / false |
 | issue.isPLUM | bool | この電文がPLUM法によるものか | true / false |
 | issue.isCancelled | bool | この電文がキャンセル報か | true / false |
 | issue.Serial | string | 電文のn報 | 半角数字 |
 | earthquake.hypocenter.code | string | 震央コード | 3桁の半角数字 または "不明" |
+| earthquake.hypocenter.name | string | 震央地名 | 震央地名 |
 | earthquake.hypocenter.lat | string | 緯度(南緯はマイナスとなる) | 小数点以下一桁までの緯度 または "不明" |
 | earthquake.hypocenter.lon | string | 経度(西経はマイナスとなる) | 小数点以下一桁までの経度 または "不明" |
 | earthquake.hypocenter.depth | string | 深さ | 2-3桁の半角数字 または "不明" |
@@ -51,6 +54,7 @@ parse_data関数にはstring型でコード電文を渡します。
 | accuracy.magnitude_station | string | マグニチュード使用観測点数(非推奨) | [コード電文解説資料](https://www.data.jma.go.jp/suishin/shiyou/pdf/no40202)のP15を参照 |
 | area | array | 予想震度 | 震央地名ごとの予測震度(震度4以上) |
 | area.code | string | 震央コード | 3桁の半角数字 |
+| area.name | string | 細分区域名 | 細分区域名 |
 | area.From | string | 予測震度の下限 | 1,2,3,4,5-,5+,6-,6+,7 |
 | area.To | string | 予測震度の上限 | 1,2,3,4,5-,5+,6-,6+,7 または "over" |
 | area.arrival_time | string | 主要動の到達予想時刻<br>(PLUM法:その震度を予測した時刻) | HH:MM:SS または "//////" |
